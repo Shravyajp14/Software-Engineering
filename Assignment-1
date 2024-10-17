@@ -1,1 +1,16 @@
+#include <stdio.h>
+//Function to square two investment return
+void squareReturns(int stockReturn, int bondReturn) {
+stockReturn = stockReturn * stockReturn;     // Squaring the return of Stock A
+bondReturn = bondReturn * bondReturn;        // Squaring the return of Bond B
+printf("Inside squareReturns: Stock A Return = %d, Bond B Return = %d\n", stockReturn, bondReturn);
+}
 
+int main() {
+int originalStockReturn = 10, originalBondReturn = 5; // Original investment returns
+printf("Before calling squareReturns: Stock A Return = %d, Bond B Return = %d\n", originalStockReturn, originalBondReturn);
+// Performing calculations without changing the original returns
+squareReturns(originalStockReturn, originalBondReturn);
+printf("After calling squareReturns: Stock A Return = %d, Bond B Return = %d\n", originalStockReturn, originalBondReturn); // Data remains unchanged
+return 0;
+}
