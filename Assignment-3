@@ -1,0 +1,80 @@
+Program-1 Error handling
+#include <stdio.h>
+int main() {
+ int a = 10, b = 0;
+if (b != 0) {
+ int result = a / b;
+ printf("Result: %d\n", result);
+}
+else {
+ printf("Error: Division by zero is not allowed.\n");
+}
+ return 0;
+} 
+
+
+Program-2 Type-safety
+#include <stdio.h>
+
+int main() {
+ int a = 10;
+ float b = 5.5; // type-safe operation 
+ float sum = a + b; // implicit type conversion 
+ printf("Sum: %.2f\n", sum);
+ return 0;
+} 
+
+
+Program-3 Modularity
+#include <stdio.h>
+// Function declaration
+int sum(int a, int b);
+int main() {
+ int a = 10, b =20;
+ printf("Sum: %d\n", sum(a, b)); // calling function return 0;
+}
+// Function definition
+int sum(int a, int b) {
+ return a + b;
+}
+
+
+Program-4 Memory management
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+int arr = (int) malloc(5 * sizeof(int)); // allocate memory
+if (arr == NULL) {
+ printf("Memory allocation failed\n");
+ return 1;
+}
+// Initialize array
+for (int i = 0; i < 5; i++) {
+ arr[i] = i * 2;
+}
+// Print array values
+for (int i = 0; i < 5; i++) {
+printf("%d ", arr[i]);
+}
+free(arr); // free memory to prevent leaks
+return 0;
+} 
+
+
+Program-5 Input validation
+#include <stdio.h>
+int main() {
+ int a, b; 
+ printf("Enter the numerator:"); // Input first number
+ scanf("%d", &a);
+ printf("Enter the denominator: ");  // Input second number and validate
+ scanf("%d", &b);
+ if (b == 0) {
+ printf("Error: Division by zero is not allowed.\n");
+ }
+ else {
+ int result = a / b;
+ printf("Result: %d\n", result);
+ }
+ return 0;
+}
