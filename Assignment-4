@@ -1,0 +1,45 @@
+Program 1-Assertions
+#include <stdio.h>
+#include <assert.h>
+void check_number(int num) {
+// Assert that the number is positive
+assert(num > 0); // If num is less than or equal to 0, the program will terminate
+printf("The number %d is positive.\n", num);
+}
+int main() {
+int num = -3; // Test with a negative number
+// Check if the number is positive
+check_number(num);
+return 0;
+}
+
+
+
+2 Program 2-POSIX Program
+#include <stdio.h>
+#include <fcntl.h> // For open()
+#include <unistd.h> // For write(), read(), close()
+int main() {
+ int fd;
+ char buffer[20];
+// Open or create the file in write-only mode, 0644 sets file permissions
+fd = open("output.txt", O_CREAT | O_WRONLY, 0644);
+if (fd < 0) {
+perror("File open failed");
+return 1;
+ }
+ // Write text to the file using POSIX write()
+write(fd, "Hello, POSIX!\n", 14);
+ // Close the file using POSIX close()
+close(fd); 
+// Open the file again in read-only mode 
+fd = open("output.txt",O_RDONLY); 
+if (fd < 0) { 
+perror("File open failed");
+return 1;
+}
+// Read the content and print it to the screen read(fd, buffer, 14);
+printf("File contents: %s", buffer);
+// Close the file close(fd);
+return 0;
+}
